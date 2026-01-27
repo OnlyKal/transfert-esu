@@ -103,29 +103,29 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
     'piece_identite': "Pièce d'identité",
     'carte_service': 'Carte de service',
     'lettre_transfert': 'Lettre de transfert',
-    'formulaire_transfert_signe': 'Formulaire signé',
+    'formulaire_transfert_signe': 'Formulaire Adhoc signé',
     'pv_origine': 'PV origine',
     'pv_accueil': 'PV accueil',
     'cadre_organique_accueil': 'Cadre organique',
     'attestation_effectifs_enseignants': 'Attestation enseignants',
     'attestation_effectifs_chercheurs': 'Attestation chercheurs',
-    'preuve_paiement': 'Preuve de paiement Banquaire',
+    'preuve_paiement': 'Preuve de paiement Bancaire',
     'preuve_charge_horaire': 'Charge Horaire',
     'pv_attribution_charge': 'PV attribution',
   };
 
   // Descriptions de 58 à 60 caractères pour chaque document
   const fileDescriptions = {
-    piece_identite: "Document officiel prouvant l'identité du demandeur (CNI ou passeport).",
+    piece_identite: "Pièce d’identité valide (carte d’électeur, passeport, permis de conduire biométrique de la RDC) du requérant",
     carte_service: "Carte professionnelle valide délivrée par l'établissement d'origine.",
     lettre_transfert: "Lettre manuscrite motivant la demande de transfert d'établissement.",
-    formulaire_transfert_signe: "Formulaire officiel de transfert dûment rempli et signé par le candidat.",
-    pv_origine: "Procès-verbal du conseil de l'établissement d'origine validant le transfert.",
-    pv_accueil: "Procès-verbal du conseil de l'établissement d'accueil acceptant le transfert.",
-    cadre_organique_accueil: "Document attestant la capacité d'accueil de l'établissement demandé.",
-    attestation_effectifs_enseignants: "Attestation officielle des effectifs enseignants et étudiants actuels.",
+    formulaire_transfert_signe: "Un formulaire ad hoc dûment rempli et signé par le requérant et les établissement/services spécialisés/centre ou institut de recherche scientifique de provenance et d’accueil, par lequel ces derniers marquent leur accord au transfert",
+    pv_origine: "Procès-verbal de la réunion au cours de laquelle l’assentiment au transfert a été marqué par l’établissement/service spécialisé/centre ou institut de recherche scientifique d’origine",
+    pv_accueil: "Procès-verbal de la réunion au cours de laquelle l’assentiment au transfert a été marqué par l’établissement/service spécialisé/centre ou institut de recherche scientifique d’accueil",
+    cadre_organique_accueil: "Copie du cadre organique de l’établissement/service spécialisé/centre ou institut de recherche scientifique d’accueil, en cas d’existence d’un tel cadre.",
+    attestation_effectifs_enseignants: "Attestation, par laquelle l’établissement/service spécialisé/centre ou institut de recherche scientifique d’accueil indique l’effectif total de son PATO et du PATO du service où il entend affecter le requérant.",
     attestation_effectifs_chercheurs: "Attestation officielle des effectifs chercheurs de l'établissement.",
-    preuve_paiement: "Justificatif du paiement banquaire des frais liés à la demande.",
+    preuve_paiement: "La preuve du versement par le requérant de la somme équivalente à 50 USD (cinquante dollars américains), dans l’un des comptes bancaires du Ministère de l’Enseignement Supérieur, Universitaire, Recherche Scientifique et Innovations repris ci-dessous. La preuve de paiement doit impérativement porter le libellé « Paiement frais administratifs de transfert ».",
     preuve_charge_horaire: "Document prouvant la charge horaire de l'étudiant dans l'établissement.",
     pv_attribution_charge: "Procès-verbal d'attribution de charge d'enseignement ou de recherche.",
   };
@@ -147,7 +147,7 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
         key: 'origine',
         label: "Province d'origine",
         value: transfert.province_origine,
-        description: "Province de l’Etablissement | Service Spécial | Centre de Recherche d’origine",
+        description: "Nom de la province de l’établissement/service spécialisé/centre ou institut de recherche scientifique de provenance",
       });
     }
 
@@ -156,7 +156,7 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
         key: 'accueil',
         label: "Province d'accueil",
         value: transfert.province_accueil,
-        description: "Province de l’Etablissement | Service Spécial | Centre de Recherche accueil",
+        description: "Nom de la province de l’établissement/service spécialisé/centre ou institut de recherche scientifique d’accueil",
       });
     }
 

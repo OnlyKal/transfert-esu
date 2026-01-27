@@ -5,13 +5,14 @@ import Signup from './Signup';
 import TransfertList from './TransfertList';
 import TransfertForm from './TransfertForm';
 import GuidePage from './GuidePage';
+import AgreementPage from './AgreementPage';
 import { normalizeAuthToken, extractOwnerId } from './utils/auth';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const [currentView, setCurrentView] = useState('list'); // 'list' ou 'form'
+  const [currentView, setCurrentView] = useState('list'); // 'list', 'form', 'guide', 'agreement'
   const [authView, setAuthView] = useState('login'); // 'login' ou 'signup'
   const [editingTransfert, setEditingTransfert] = useState(null);
 
@@ -100,7 +101,7 @@ function App() {
 
   const handleCreateNew = () => {
     setEditingTransfert(null);
-    setCurrentView('form');
+    setCurrentView('agreement'); // Afficher d'abord la page d'accord
   };
 
   const handleEditTransfert = (transfertId, transfertData) => {
@@ -108,7 +109,7 @@ function App() {
       id: transfertId,
       data: transfertData,
     });
-    setCurrentView('form');
+    setCurrentView('agreement'); // Afficher d'abord la page d'accord
   };
 
   const handleBackToList = () => {
@@ -119,6 +120,19 @@ function App() {
   const handleShowGuide = () => {
     setEditingTransfert(null);
     setCurrentView('guide');
+  };
+
+  const handleAgreementContinue = () => {
+    setCurrentView('guide'); // Aller à la page guide après acceptation
+  };
+
+  const handleAgreementQuit = () => {
+    setCurrentView('list'); // Retourner à la liste
+    setEditingTransfert(null);
+  };
+
+  const handleGuideContinue = () => {
+    setCurrentView('form'); // Aller au formulaire après avoir lu le guide
   };
 
   const handleSignupSuccess = (token, userData) => {
@@ -148,6 +162,15 @@ function App() {
             />
           )}
 
+          {currentView === 'agreement' && (
+            <AgreementPage
+              user={user}
+              onContinue={handleAgreementContinue}
+              onQuit={handleAgreementQuit}
+              onLogout={handleLogout}
+            />
+          )}
+
           {currentView === 'form' && (
             <TransfertForm
               user={user}
@@ -162,7 +185,9 @@ function App() {
             <GuidePage
               user={user}
               onBack={handleBackToList}
+              onContinue={handleGuideContinue}
               onLogout={handleLogout}
+              fromAgreement={editingTransfert !== null || currentView === 'guide'}
             />
           )}
         </>

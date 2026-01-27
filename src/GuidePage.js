@@ -69,8 +69,37 @@ const quickTips = [
   'Chaque fichier peut être rouvert via l’icône de téléchargement pour vérification.',
   'Pensez à vider le cache du navigateur si une pièce refuse de se téléverser.',
 ];
-
-const GuidePage = ({ user, onBack, onLogout }) => {
+const paymentAccounts = [
+  {
+    bank: 'RAWBANK',
+    accounts: [
+      { currency: 'USD', number: '05100 05101 01001374002 82' },
+      { currency: 'CDF', number: '05100 05101 01001374001 85' },
+    ],
+  },
+  {
+    bank: 'FIRST BANK',
+    accounts: [
+      { currency: 'USD', number: '00014-11011-20420969394 40' },
+      { currency: 'CDF', number: '00014-11011-20420969395 37' },
+    ],
+  },
+  {
+    bank: 'AFRILAND FIRSTBANK',
+    accounts: [
+      { currency: 'USD', number: '00019 00001 02200640601 87' },
+      { currency: 'CDF', number: '00019 00001 02200640601 92' },
+    ],
+  },
+  {
+    bank: 'TMB',
+    accounts: [
+      { currency: 'USD', number: '00017-27000-73035820201 11' },
+      { currency: 'CDF', number: '00017-27000-73035820300 05' },
+    ],
+  },
+];
+const GuidePage = ({ user, onBack, onContinue, onLogout, fromAgreement }) => {
   return (
     <>
       <div className="form-header">
@@ -88,9 +117,15 @@ const GuidePage = ({ user, onBack, onLogout }) => {
 
           <div className="header-right">
             <span className="user-info">{user?.nom} {user?.prenom}</span>
-            <button className="guide-back-btn" onClick={onBack}>
-              ← Retour
-            </button>
+            {fromAgreement && onContinue ? (
+              <button className="guide-back-btn" onClick={onContinue}>
+                Commencer ma demande →
+              </button>
+            ) : (
+              <button className="guide-back-btn" onClick={onBack}>
+                ← Retour
+              </button>
+            )}
             <button className="logout-btn" onClick={onLogout}>
               Déconnexion
             </button>
@@ -106,12 +141,25 @@ const GuidePage = ({ user, onBack, onLogout }) => {
             Chaque section détaille les actions à mener et les points de contrôle essentiels avant la soumission.
           </p>
           <div className="guide-intro-actions">
-            <button className="primary-btn" onClick={onBack}>
-              Revenir à mes transferts
-            </button>
-            <button className="outline-btn" onClick={() => window.open('mailto:support@transfert.cd')}>
-              Contacter le support
-            </button>
+            {fromAgreement && onContinue ? (
+              <>
+                <button className="primary-btn" onClick={onContinue}>
+                  Commencer ma demande
+                </button>
+                <button className="outline-btn" onClick={onBack}>
+                  Retour à la liste
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="primary-btn" onClick={onBack}>
+                  Revenir à mes transferts
+                </button>
+                <button className="outline-btn" onClick={() => window.open('mailto:support@transfert.cd')}>
+                  Contacter le support
+                </button>
+              </>
+            )}
           </div>
         </section>
 
@@ -150,6 +198,28 @@ const GuidePage = ({ user, onBack, onLogout }) => {
             {quickTips.map((tip) => (
               <div key={tip} className="tip-card">
                 <p>{tip}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="payment-accounts-section">
+          <h2>Comptes de Paiement</h2>
+          <p className="section-description">
+            Effectuez votre paiement sur l'un des comptes bancaires suivants, puis joignez la preuve de paiement à votre dossier.
+          </p>
+          <div className="payment-accounts-grid">
+            {paymentAccounts.map((bank) => (
+              <div key={bank.bank} className="payment-bank-card">
+                <h3 className="bank-name">{bank.bank}</h3>
+                <div className="bank-accounts">
+                  {bank.accounts.map((account) => (
+                    <div key={account.currency} className="account-row">
+                      <span className="currency-badge">{account.currency}</span>
+                      <span className="account-number">{account.number}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

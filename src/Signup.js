@@ -141,7 +141,7 @@ const Signup = ({ onSignupSuccess, onBackToLogin }) => {
   return (
     <div className="login-page">
       <div className="login-card">
-        {/* Logo em haut */}
+        {/* Logo en haut */}
         <div className="login-header">
           <div className="login-logo">
             <img src="/app-logo.png" alt="Logo" className="logo" />

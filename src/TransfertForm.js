@@ -278,14 +278,14 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     attestation_effectifs_chercheurs: "Attestation des effectifs chercheurs",
     preuve_paiement: "Preuve de paiement Banquaire",
     preuve_charge_horaire: "Charge horaire",
-    pv_attribution_charge: "PV de reunion d'attribution de charge",
+    pv_attribution_charge: "PV de réunion d'attribution de charge",
   };
 
   // Descriptions de 58 à 60 caractères pour chaque document
   const fileDescriptions = {
-    piece_identite: "Document officiel prouvant l'identité du demandeur (Carte d'identite, Carte d'électeurs ou passeport).",
-    carte_service: "Carte professionnelle valide délivrée par l'établissement d'origine.",
-    lettre_transfert: "Lettre motivant la demande de transfert d'établissement.",
+    piece_identite: "Pièce d’identité valide (carte d’électeur, passeport, permis de conduire biométrique de la RDC) du requérant",
+    carte_service: "Copie recto-verso de la carte de service du requérant ou toute autre preuve d’appartenance au personnel à l’établissement/service spécialisé/centre ou institut de recherche scientifique de provenance",
+    lettre_transfert: "Lettre de demande de transfert (contenant l’identité, le grade, la fonction et le numéro matricule du requérant), justifiant, de manière claire, la nécessité du transfert dans l’intérêt du service",
     formulaire_transfert_signe: "Formulaire ad-Hoc signé par l’ etablissement d’origine et d’accueil.",
     pv_origine: "Procès-verbal du conseil de l'établissement d'origine validant le transfert.",
     pv_accueil: "Procès-verbal du conseil de l'établissement d'accueil acceptant le transfert.",
@@ -293,7 +293,7 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     attestation_effectifs_enseignants: "Attestation officielle des effectifs enseignants et étudiants actuels.",
     attestation_effectifs_chercheurs: "Attestation officielle des effectifs chercheurs de l'établissement.",
     preuve_paiement: "Justificatif du paiement banquaire des frais liés à la demande.",
-    preuve_charge_horaire: "Document prouvant la charge horaire de l'étudiant dans l'établissement.",
+    preuve_charge_horaire: "Document prouvant la disponibilité d'une charge horaire disponible dans l'établissement d'accueil.",
     pv_attribution_charge: "Procès-verbal d'attribution de charge d'enseignement ou de recherche.",
   };
 
