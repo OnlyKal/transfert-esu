@@ -1,6 +1,37 @@
 import React from 'react';
 import './AgreementPage.css';
 
+const paymentAccounts = [
+  {
+    bank: 'RAWBANK',
+    accounts: [
+      { currency: 'USD', number: '05100 05101 01001374002 82' },
+      { currency: 'CDF', number: '05100 05101 01001374001 85' },
+    ],
+  },
+  {
+    bank: 'FIRST BANK',
+    accounts: [
+      { currency: 'USD', number: '00014-11011-20420969394-40' },
+      { currency: 'CDF', number: '00014-11011-20420969395-37' },
+    ],
+  },
+  {
+    bank: 'AFRILAND FIRSTBANK',
+    accounts: [
+      { currency: 'USD', number: '00019 00001 02200640601-87' },
+      { currency: 'CDF', number: '00019 00001 02200640601-92' },
+    ],
+  },
+  {
+    bank: 'TMB',
+    accounts: [
+      { currency: 'USD', number: '00017-27000-73035820201-11' },
+      { currency: 'CDF', number: '00017-27000-73035820300-05' },
+    ],
+  },
+];
+
 const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
   return (
     <div className="agreement-page">
@@ -53,6 +84,28 @@ const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
             <p className="declaration-text">
               <strong>Je reconnais avoir pris connaissance des directives ci-dessus et m'engage à les observer scrupuleusement.</strong>
             </p>
+          </div>
+
+          <div className="payment-accounts-section">
+            <h2>Comptes de Paiement</h2>
+            <p className="section-description">
+              Effectuez votre paiement sur l'un des comptes bancaires suivants, puis joignez la preuve de paiement à votre dossier.
+            </p>
+            <div className="payment-accounts-grid">
+              {paymentAccounts.map((bank) => (
+                <div key={bank.bank} className="payment-bank-card">
+                  <h3 className="bank-name">{bank.bank}</h3>
+                  <div className="bank-accounts">
+                    {bank.accounts.map((account) => (
+                      <div key={account.currency} className="account-row">
+                        <span className="currency-badge">{account.currency}</span>
+                        <span className="account-number">{account.number}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

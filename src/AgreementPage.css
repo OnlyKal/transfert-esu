@@ -139,6 +139,94 @@
   line-height: 1.6;
 }
 
+/* Section des comptes de paiement */
+.payment-accounts-section {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.payment-accounts-section h2 {
+  margin-bottom: 12px;
+  font-size: 1.5em;
+  color: #1b1f3b;
+  text-align: center;
+}
+
+.section-description {
+  color: #5c6786;
+  font-size: 0.95em;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.payment-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.payment-bank-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e8eef5;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.payment-bank-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.bank-name {
+  color: #007BFF;
+  font-size: 1.05em;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8eef5;
+  text-align: center;
+}
+
+.bank-accounts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #f7f9fc;
+  border-radius: 8px;
+  border: 1px solid #e8eef5;
+}
+
+.currency-badge {
+  background: #007BFF;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  min-width: 48px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.account-number {
+  color: #1f2d3d;
+  font-weight: 600;
+  font-size: 0.9em;
+  font-family: 'Courier New', monospace;
+  word-break: break-all;
+}
+
 .agreement-actions {
   display: flex;
   justify-content: center;
@@ -240,5 +328,19 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+
+  .payment-accounts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .account-number {
+    font-size: 0.85em;
   }
 }

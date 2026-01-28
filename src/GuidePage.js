@@ -202,28 +202,6 @@ const GuidePage = ({ user, onBack, onContinue, onLogout, fromAgreement }) => {
             ))}
           </div>
         </section>
-
-        <section className="payment-accounts-section">
-          <h2>Comptes de Paiement</h2>
-          <p className="section-description">
-            Effectuez votre paiement sur l'un des comptes bancaires suivants, puis joignez la preuve de paiement à votre dossier.
-          </p>
-          <div className="payment-accounts-grid">
-            {paymentAccounts.map((bank) => (
-              <div key={bank.bank} className="payment-bank-card">
-                <h3 className="bank-name">{bank.bank}</h3>
-                <div className="bank-accounts">
-                  {bank.accounts.map((account) => (
-                    <div key={account.currency} className="account-row">
-                      <span className="currency-badge">{account.currency}</span>
-                      <span className="account-number">{account.number}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     </>
   );
