@@ -44,7 +44,8 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
         'piece_identite', 'carte_service', 'lettre_transfert', 'formulaire_transfert_signe',
         'pv_origine', 'pv_accueil', 'cadre_organique_accueil',
         'attestation_effectifs_enseignants', 'attestation_effectifs_chercheurs',
-        'preuve_paiement', 'preuve_charge_horaire', 'pv_attribution_charge'
+        'preuve_paiement', 'preuve_charge_horaire', 'pv_attribution_charge',
+        'acte_nomination', 'acte_affectation'
       ];
       const existing = {};
       fileKeys.forEach(key => {
@@ -78,6 +79,8 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     preuve_paiement: null,
     preuve_charge_horaire: null,
     pv_attribution_charge: null,
+    acte_nomination: null,
+    acte_affectation: null,
   });
 
   const [existingFiles, setExistingFiles] = useState({
@@ -93,6 +96,8 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     preuve_paiement: false,
     preuve_charge_horaire: false,
     pv_attribution_charge: false,
+    acte_nomination: false,
+    acte_affectation: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -279,6 +284,8 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     preuve_paiement: "Preuve de paiement Banquaire",
     preuve_charge_horaire: "Charge horaire",
     pv_attribution_charge: "PV de réunion d'attribution de charge",
+    acte_nomination: "Acte de nomination",
+    acte_affectation: "Acte d'affectation",
   };
 
   // Descriptions de 58 à 60 caractères pour chaque document
@@ -295,6 +302,8 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     preuve_paiement: "Justificatif du paiement banquaire des frais liés à la demande.",
     preuve_charge_horaire: "Document prouvant la disponibilité d'une charge horaire disponible dans l'établissement d'accueil.",
     pv_attribution_charge: "Procès-verbal d'attribution de charge d'enseignement ou de recherche.",
+    acte_nomination: "Document officiel attestant la nomination du requérant à son poste actuel.",
+    acte_affectation: "Document officiel attestant l'affectation du requérant à son établissement actuel.",
   };
 
   // Calculer le pourcentage de complétion

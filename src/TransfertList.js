@@ -83,6 +83,8 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
       'preuve_paiement',
       'preuve_charge_horaire',
       'pv_attribution_charge',
+      'acte_nomination',
+      'acte_affectation',
     ];
 
     return requiredFiles.filter(file => !transfert[file]);
@@ -112,6 +114,8 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
     'preuve_paiement': 'Preuve de paiement Bancaire',
     'preuve_charge_horaire': 'Charge Horaire',
     'pv_attribution_charge': 'PV attribution',
+    'acte_nomination': 'Acte de nomination',
+    'acte_affectation': "Acte d'affectation",
   };
 
   // Descriptions de 58 à 60 caractères pour chaque document
@@ -127,8 +131,8 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
     attestation_effectifs_chercheurs: "Attestation officielle des effectifs chercheurs de l'établissement.",
     preuve_paiement: "La preuve du versement par le requérant de la somme équivalente à 50 USD (cinquante dollars américains), dans l’un des comptes bancaires du Ministère de l’Enseignement Supérieur, Universitaire, Recherche Scientifique et Innovations repris ci-dessous. La preuve de paiement doit impérativement porter le libellé « Paiement frais administratifs de transfert ».",
     preuve_charge_horaire: "Document prouvant la charge horaire de l'étudiant dans l'établissement.",
-    pv_attribution_charge: "Procès-verbal d'attribution de charge d'enseignement ou de recherche.",
-  };
+    pv_attribution_charge: "Procès-verbal d'attribution de charge d'enseignement ou de recherche.",    acte_nomination: "Document officiel attestant la nomination du requérant à son poste actuel.",
+    acte_affectation: "Document officiel attestant l'affectation du requérant à son établissement actuel.",  };
 
   const getUploadedFiles = (transfert) => {
     return Object.entries(fileLabels).filter(([key]) => transfert[key]).map(([key, label]) => ({
