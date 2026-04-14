@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './GuidePage.css';
 
 const processSections = [
@@ -69,37 +69,41 @@ const quickTips = [
   'Chaque fichier peut être rouvert via l’icône de téléchargement pour vérification.',
   'Pensez à vider le cache du navigateur si une pièce refuse de se téléverser.',
 ];
-const paymentAccounts = [
-  {
-    bank: 'RAWBANK',
-    accounts: [
-      { currency: 'USD', number: '05100 05101 01001374002 82' },
-      { currency: 'CDF', number: '05100 05101 01001374001 85' },
-    ],
-  },
-  {
-    bank: 'FIRST BANK',
-    accounts: [
-      { currency: 'USD', number: '00014-11011-20420969394 40' },
-      { currency: 'CDF', number: '00014-11011-20420969395 37' },
-    ],
-  },
-  {
-    bank: 'AFRILAND FIRSTBANK',
-    accounts: [
-      { currency: 'USD', number: '00019 00001 02200640601 87' },
-      { currency: 'CDF', number: '00019 00001 02200640601 92' },
-    ],
-  },
-  {
-    bank: 'TMB',
-    accounts: [
-      { currency: 'USD', number: '00017-27000-73035820201 11' },
-      { currency: 'CDF', number: '00017-27000-73035820300 05' },
-    ],
-  },
-];
+// const paymentAccounts = [
+//   {
+//     bank: 'RAWBANK',
+//     accounts: [
+//       { currency: 'USD', number: '05100 05101 01001374002 82' },
+//       { currency: 'CDF', number: '05100 05101 01001374001 85' },
+//     ],
+//   },
+//   {
+//     bank: 'FIRST BANK',
+//     accounts: [
+//       { currency: 'USD', number: '00014-11011-20420969394 40' },
+//       { currency: 'CDF', number: '00014-11011-20420969395 37' },
+//     ],
+//   },
+//   {
+//     bank: 'AFRILAND FIRSTBANK',
+//     accounts: [
+//       { currency: 'USD', number: '00019 00001 02200640601 87' },
+//       { currency: 'CDF', number: '00019 00001 02200640601 92' },
+//     ],
+//   },
+//   {
+//     bank: 'TMB',
+//     accounts: [
+//       { currency: 'USD', number: '00017-27000-73035820201 11' },
+//       { currency: 'CDF', number: '00017-27000-73035820300 05' },
+//     ],
+//   },
+// ];
 const GuidePage = ({ user, onBack, onContinue, onLogout, fromAgreement }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
   return (
     <>
       <div className="form-header">
@@ -111,14 +115,14 @@ const GuidePage = ({ user, onBack, onContinue, onLogout, fromAgreement }) => {
           </div>
 
           <div className="header-center">
-            <h1>Guide Complet</h1>
+            <h1>Guide complet</h1>
             <p className="subtitle">Toutes les étapes de la demande de transfert, de A à Z</p>
           </div>
 
           <div className="header-right">
             <span className="user-info">{user?.nom} {user?.prenom}</span>
             {fromAgreement && onContinue ? (
-              <button className="guide-back-btn" onClick={onContinue}>
+              <button className="guide-back-btn start-request-btn" onClick={onContinue}>
                 Commencer ma demande →
               </button>
             ) : (
@@ -143,7 +147,7 @@ const GuidePage = ({ user, onBack, onContinue, onLogout, fromAgreement }) => {
           <div className="guide-intro-actions">
             {fromAgreement && onContinue ? (
               <>
-                <button className="primary-btn" onClick={onContinue}>
+                <button className="primary-btn start-request-btn" onClick={onContinue}>
                   Commencer ma demande
                 </button>
                 <button className="outline-btn" onClick={onBack}>

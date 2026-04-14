@@ -142,7 +142,7 @@ const Login = ({ onLoginSuccess, onShowSignup }) => {
                 value={formData.mot_de_passe}
                 onChange={handleInputChange}
                 required
-                placeholder="Entrez votre mot de passe"
+                placeholder="Entrez votre mot de passe 8 caractères minimum"
                 disabled={loading}
               />
               <button

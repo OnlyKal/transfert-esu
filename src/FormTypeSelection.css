@@ -1,0 +1,77 @@
+/* Sélection du type de formulaire */
+.form-type-selection {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 20px;
+}
+
+.form-type-selection h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2em;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.form-type-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-type-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-type-card:hover {
+  border-color: #007BFF;
+  transform: translateY(-4px);
+  background: #f0f7ff;
+}
+
+.card-icon-type {
+  font-size: 4em;
+  margin-bottom: 20px;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+.form-type-card:hover .card-icon-type {
+  filter: grayscale(0);
+}
+
+.form-type-card h3 {
+  color: #007BFF;
+  font-size: 1.5em;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.form-type-card p {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .form-type-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .form-type-selection h2 {
+    font-size: 1.5em;
+  }
+
+  .form-type-card {
+    padding: 24px 16px;
+  }
+}

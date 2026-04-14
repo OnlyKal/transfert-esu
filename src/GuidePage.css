@@ -68,6 +68,19 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
+.start-request-btn {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.start-request-btn:hover {
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
 .guide-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

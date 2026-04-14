@@ -1,36 +1,36 @@
 import React from 'react';
 import './AgreementPage.css';
 
-const paymentAccounts = [
-  {
-    bank: 'RAWBANK',
-    accounts: [
-      { currency: 'USD', number: '05100 05101 01001374002 82' },
-      { currency: 'CDF', number: '05100 05101 01001374001 85' },
-    ],
-  },
-  {
-    bank: 'FIRST BANK',
-    accounts: [
-      { currency: 'USD', number: '00014-11011-20420969394-40' },
-      { currency: 'CDF', number: '00014-11011-20420969395-37' },
-    ],
-  },
-  {
-    bank: 'AFRILAND FIRSTBANK',
-    accounts: [
-      { currency: 'USD', number: '00019 00001 02200640601-87' },
-      { currency: 'CDF', number: '00019 00001 02200640601-92' },
-    ],
-  },
-  {
-    bank: 'TMB',
-    accounts: [
-      { currency: 'USD', number: '00017-27000-73035820201-11' },
-      { currency: 'CDF', number: '00017-27000-73035820300-05' },
-    ],
-  },
-];
+// const paymentAccounts = [
+//   {
+//     bank: 'RAWBANK',
+//     accounts: [
+//       { currency: 'USD', number: '05100 05101 01001374002 82' },
+//       { currency: 'CDF', number: '05100 05101 01001374001 85' },
+//     ],
+//   },
+//   {
+//     bank: 'FIRST BANK',
+//     accounts: [
+//       { currency: 'USD', number: '00014-11011-20420969394-40' },
+//       { currency: 'CDF', number: '00014-11011-20420969395-37' },
+//     ],
+//   },
+//   {
+//     bank: 'AFRILAND FIRSTBANK',
+//     accounts: [
+//       { currency: 'USD', number: '00019 00001 02200640601-87' },
+//       { currency: 'CDF', number: '00019 00001 02200640601-92' },
+//     ],
+//   },
+//   {
+//     bank: 'TMB',
+//     accounts: [
+//       { currency: 'USD', number: '00017-27000-73035820201-11' },
+//       { currency: 'CDF', number: '00017-27000-73035820300-05' },
+//     ],
+//   },
+// ];
 
 const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
   return (
@@ -38,14 +38,24 @@ const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
       <div className="agreement-header">
         <div className="header-content">
           <div className="header-left">
-            <h1>Demande de Transfert - Directives Importantes</h1>
-          </div>
-          {user && (
-            <div className="user-info">
-              <span>Connecté : {user.nom} {user.prenom}</span>
-              <button onClick={onLogout} className="btn-logout">Déconnexion</button>
+            <div className="header-logo">
+              <img src="/app-logo.png" alt="Logo" className="logo" />
             </div>
-          )}
+          </div>
+
+          <div className="header-center">
+            <h1>Directives importantes</h1>
+            <p className="subtitle">Lisez attentivement avant de continuer</p>
+          </div>
+
+          <div className="header-right">
+            {user && (
+              <>
+                <span className="user-info">{user.nom} {user.prenom}</span>
+                <button onClick={onLogout} className="logout-btn">Déconnexion</button>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
@@ -56,26 +66,22 @@ const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
           <div className="directives-list">
             <div className="directive-item">
               <span className="directive-number">1)</span>
-              <p>Si vous sollicitez un transfert d'office, au sens des textes légaux et réglementaires, ne remplissez pas ce formulaire ;</p>
+              {/* <p>Assurez-vous d'avoir, au format pdf, les copies certifiées conformes aux originaux des pièces requises, exceptée la preuve de paiement des frais administratifs dus au MINESURSI ;</p> */}
+              <p>Assurez-vous d'avoir, au format pdf, les copies certifiées conformes aux originaux des pièces requises ;</p>
             </div>
 
             <div className="directive-item">
               <span className="directive-number">2)</span>
-              <p>Assurez-vous d'avoir, au format pdf, les copies certifiées conformes aux originaux des pièces requises, exceptée la preuve de paiement des frais administratifs dus au MINESURSI ;</p>
-            </div>
-
-            <div className="directive-item">
-              <span className="directive-number">3)</span>
               <p>Tout dossier incomplet ou composé de pièces non certifiées conformes aux originales sera rejeté ;</p>
             </div>
 
             <div className="directive-item">
-              <span className="directive-number">4)</span>
+              <span className="directive-number">3)</span>
               <p>Les déclarations erronées, mensongères ou frauduleuses donneront lieu à des sanctions administratives et, le cas échéant, à des poursuites judiciaires ;</p>
             </div>
 
             <div className="directive-item">
-              <span className="directive-number">5)</span>
+              <span className="directive-number">4)</span>
               <p>Si après l'examen à première vue de votre dossier, celui-ci est déclaré recevable et susceptible d'obtenir une suite favorable, vous serez contacté en vue de présenter la version papier de votre dossier : les originaux de différentes lettres et attestations, ainsi que les copies certifiées conformes aux originaux des autres pièces du dossier.</p>
             </div>
           </div>
@@ -86,11 +92,29 @@ const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
             </p>
           </div>
 
+          {/* Section paiement commentée pour usage ultérieur
           <div className="payment-accounts-section">
-            <h2>Comptes de Paiement</h2>
+            <h2>Comptes de paiement des frais administratifs</h2>
             <p className="section-description">
-              Effectuez votre paiement sur l'un des comptes bancaires suivants, puis joignez la preuve de paiement à votre dossier.
+              Veuillez payer vos frais administratifs sur l'un des comptes bancaires suivants, puis joignez la preuve de paiement à votre dossier.
             </p>
+            <div className="payment-fees-card">
+              <h3 className="payment-fees-title">Montants des frais administratifs</h3>
+              <div className="payment-fees-list">
+                <div className="payment-fee-row">
+                  <span className="fee-category">Personnel Enseignant</span>
+                  <span className="fee-amount">70 USD</span>
+                </div>
+                <div className="payment-fee-row">
+                  <span className="fee-category">Chercheur</span>
+                  <span className="fee-amount">70 USD</span>
+                </div>
+                <div className="payment-fee-row">
+                  <span className="fee-category">Personnel Administratif, Technique et Ouvrier (PATO)</span>
+                  <span className="fee-amount">50 USD</span>
+                </div>
+              </div>
+            </div>
             <div className="payment-accounts-grid">
               {paymentAccounts.map((bank) => (
                 <div key={bank.bank} className="payment-bank-card">
@@ -107,6 +131,7 @@ const AgreementPage = ({ onContinue, onQuit, user, onLogout }) => {
               ))}
             </div>
           </div>
+          */}
         </div>
 
         <div className="agreement-actions">

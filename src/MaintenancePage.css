@@ -1,0 +1,125 @@
+.maintenance-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 50%, #f0f9ff 100%);
+  padding: 20px;
+}
+
+.maintenance-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 48px 40px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+.maintenance-icon-wrapper {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #007BFF, #0056d2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.3);
+}
+
+.maintenance-icon {
+  font-size: 40px;
+  color: white;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.maintenance-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.maintenance-message {
+  font-size: 1.05em;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+}
+
+.maintenance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.maintenance-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0f7ff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.95em;
+  color: #333;
+  text-align: left;
+}
+
+.maintenance-info-item i {
+  font-size: 1.3em;
+  color: #007BFF;
+  flex-shrink: 0;
+}
+
+.maintenance-footer {
+  border-top: 1px solid #e8eef5;
+  padding-top: 24px;
+}
+
+.maintenance-footer p {
+  margin: 0 0 10px 0;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.maintenance-footer p i {
+  color: #007BFF;
+  margin-right: 4px;
+}
+
+.maintenance-contact a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.maintenance-contact a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  .maintenance-card {
+    padding: 32px 20px;
+  }
+
+  .maintenance-title {
+    font-size: 1.4em;
+  }
+
+  .maintenance-icon-wrapper {
+    width: 72px;
+    height: 72px;
+  }
+
+  .maintenance-icon {
+    font-size: 32px;
+  }
+}

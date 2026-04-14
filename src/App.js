@@ -6,7 +6,11 @@ import TransfertList from './TransfertList';
 import TransfertForm from './TransfertForm';
 import GuidePage from './GuidePage';
 import AgreementPage from './AgreementPage';
+import MaintenancePage from './MaintenancePage';
 import { normalizeAuthToken, extractOwnerId } from './utils/auth';
+
+// Passer à true pour activer le mode maintenance
+const MAINTENANCE_MODE = false;
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -109,7 +113,7 @@ function App() {
       id: transfertId,
       data: transfertData,
     });
-    setCurrentView('agreement'); // Afficher d'abord la page d'accord
+    setCurrentView('form'); // Aller directement au formulaire
   };
 
   const handleBackToList = () => {
@@ -146,6 +150,10 @@ function App() {
     setCurrentView('list');
     setAuthView('login');
   };
+
+  if (MAINTENANCE_MODE) {
+    return <MaintenancePage />;
+  }
 
   return (
     <div className="App">

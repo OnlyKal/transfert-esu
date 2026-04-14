@@ -60,8 +60,8 @@ const Signup = ({ onSignupSuccess, onBackToLogin }) => {
       return;
     }
 
-    if (formData.mot_de_passe.length < 6) {
-      setMessage({ type: 'error', text: 'Le mot de passe doit contenir au moins 6 caractères.' });
+    if (formData.mot_de_passe.length < 8) {
+      setMessage({ type: 'error', text: 'Le mot de passe doit contenir au moins 8 caractères.' });
       setLoading(false);
       return;
     }
@@ -227,7 +227,8 @@ const Signup = ({ onSignupSuccess, onBackToLogin }) => {
                 name="mot_de_passe"
                 value={formData.mot_de_passe}
                 onChange={handleInputChange}
-                placeholder="Entrez votre mot de passe"
+                placeholder="Entrez votre mot de passe 8 caractères minimum"
+                minLength={8}
                 disabled={loading}
                 required
               />
@@ -251,7 +252,8 @@ const Signup = ({ onSignupSuccess, onBackToLogin }) => {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
-                placeholder="Confirmez votre mot de passe"
+                placeholder="Confirmez votre mot de passe 8 caractères minimum"
+                minLength={8}
                 disabled={loading}
                 required
               />
