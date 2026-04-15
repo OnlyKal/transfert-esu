@@ -450,8 +450,8 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
     carte_service: "Carte de service",
     lettre_transfert: "Lettre de demande de transfert",
     formulaire_transfert_signe: "Formulaire Ad-Hoc signé par l’ etablissement d’origine et d’accueil",
-    pv_origine: "PV de l'établissement d'origine (transfert sortant)",
-    pv_accueil: "PV de l'établissement d'accueil (transfert entrant)",
+    pv_origine: "PV de l'établissement de provenance",
+    pv_accueil: "PV de l'établissement d'accueil",
     cadre_organique_accueil: "Cadre organique de l'établissement | Institutions | centre d'accueil",
     attestation_effectifs_enseignants: "Attestation des effectifs enseignants et étudiants",
     // preuve_paiement: "Preuve de paiement Bancaire",
@@ -470,10 +470,10 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
   // Descriptions de 58 à 60 caractères pour chaque document
   const fileDescriptions = {
     piece_identite: "Pièce d’identité valide (carte d’électeur, passeport, permis de conduire biométrique de la RDC) du requérant",
-    carte_service: "Copie recto-verso de la carte de service du requérant ou toute autre preuve d’appartenance au personnel à l’établissement/service spécialisé/centre ou institut de recherche scientifique de provenance",
+    carte_service: "Copie recto-verso de la carte de service du requérant ou toute autre preuve d’appartenance au personnel à l’établissement/service spécialisé/centre ou institut de recherche scientifique",
     lettre_transfert: "Lettre de demande de transfert (contenant l’identité, le grade, la fonction et le numéro matricule du requérant), justifiant, de manière claire, la nécessité du transfert dans l’intérêt du service",
     formulaire_transfert_signe: "Formulaire ad-Hoc signé par l’ etablissement d’origine et d’accueil.",
-    pv_origine: "Procès-verbal du conseil de l'établissement d'origine validant le transfert.",
+    pv_origine: "Procès-verbal du conseil de l'établissement de provenance validant le transfert.",
     pv_accueil: "Procès-verbal du conseil de l'établissement d'accueil acceptant le transfert.",
     cadre_organique_accueil: "Document attestant la capacité d'accueil de l'établissement, Institution ou centre.",
     attestation_effectifs_enseignants: "Attestation officielle des effectifs enseignants et étudiants actuels.",
@@ -501,16 +501,16 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
       return "Formulaire Ad-Hoc signé par les établissements/centres/instituts de provenance et d'accueil";
     }
     if (fileKey === 'pv_origine' && formType === 'chercheurs') {
-      return "PV du conseil/comité de gestion de l'institut/centre de provenance (transfert sortant)";
+      return "PV du conseil/comité de gestion de l'institut/centre de provenance ";
     }
     if (fileKey === 'pv_origine' && formType === 'enseignants') {
-      return "PV de validation de l'établissement de provenance (transfert sortant)";
+      return "PV de validation de l'établissement de provenance ";
     }
     if (fileKey === 'pv_origine' && formType === 'pato') {
       return "PV du Comité de gestion de l'établissement/service spécialisé/institut/centre de provenance";
     }
     if (fileKey === 'pv_accueil' && formType === 'chercheurs') {
-      return "PV du conseil/comité de gestion de l'institut/centre d'accueil (transfert entrant)";
+      return "PV du conseil/comité de gestion de l'institut/centre d'accueil";
     }
     if (fileKey === 'pv_accueil' && formType === 'enseignants') {
       return "PV d'acceptation de l'établissement d'accueil";
@@ -552,13 +552,13 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
   };
 
   const getFileDescription = (fileKey) => {    if (fileKey === 'carte_service' && formType === 'enseignants') {
-      return "Copie recto-verso de la carte de service du requérant ou toute autre preuve d'appartenance au personnel à l'établissement de provenance";
+      return "Copie recto-verso de la carte de service du requérant ou toute autre preuve d'appartenance au personnel à l'établissement";
     }
     if (fileKey === 'carte_service' && formType === 'chercheurs') {
-      return "Copie recto-verso de la carte de service du requérant ou toute autre preuve d'appartenance au personnel du centre ou institut scientifique de provenance";
+      return "Copie recto-verso de la carte de service du requérant ou toute autre preuve d'appartenance au personnel du centre ou institut scientifique";
     }
     if (fileKey === 'carte_service' && formType === 'pato') {
-      return "Copie recto-verso de la carte de service du requérant ou toute autre preuve d'appartenance au personnel à l'établissement/service spécialisé/centre ou institut de recherche scientifique de provenance";
+      return "Copie recto-verso de la carte de service du requérant ou toute autre preuve d'appartenance au personnel à l'établissement/service spécialisé/centre ou institut de recherche scientifique";
     }
     if (fileKey === 'carte_service' && formType === 'conjoint') {
       return "Copie recto-verso de la carte de service du (de la) conjoint(e) ou toute autre preuve d'appartenance au personnel de l'établissement/service spécialisé/centre ou institut de recherche scientifique concerné par le transfert d'office.";
@@ -572,16 +572,16 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
       return "Formulaire Ad-Hoc signé par les établissements/Centres/Instituts de provenance et d'accueil.";
     }
     if (fileKey === 'pv_origine' && formType === 'chercheurs') {
-      return "Procès-verbal du conseil/comité de gestion de l'institut/centre de provenance (transfert sortant)";
+      return "Procès-verbal du conseil/comité de gestion de l'institut/centre de provenance ";
     }
     if (fileKey === 'pv_origine' && formType === 'enseignants') {
       return "Procès-verbal de validation de l'établissement de provenance";
     }
     if (fileKey === 'pv_origine' && formType === 'pato') {
-      return "Procès-verbal du Comité de gestion/Etablissement/Institut/Centre d'Origine.";
+      return "Procès-verbal du Comité de gestion/Etablissement/Institut/Centre de provenance.";
     }
     if (fileKey === 'pv_accueil' && formType === 'chercheurs') {
-      return "Procès-verbal du conseil/comité de gestion de l'institut/centre d'accueil (transfert entrant)";
+      return "Procès-verbal du conseil/comité de gestion de l'institut/centre d'accueil";
     }
     if (fileKey === 'pv_accueil' && formType === 'enseignants') {
       return "Procès-verbal d'acceptation de l'établissement d'accueil";
@@ -602,7 +602,7 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
       return "Attestation officielle indiquant les effectifs des étudiants de la faculté/département où vous souhaitez être transféré.";
     }
     if (fileKey === 'attestation_effectifs_enseignants' && formType === 'chercheurs') {
-      return "Affectation officielle des effectifs des chercheurs affectés dans le departement/cellule/section où vous voulez être transferé";
+      return "Attestation officielle des effectifs des chercheurs affectés dans le departement/cellule/section où vous voulez être transferé";
     }
     if (fileKey === 'attestation_effectifs_enseignants' && formType === 'pato') {
       return "Attestation officielle des effectifs de PATO affectés dans le service/cellule/section où vous souhaitez être transféré.";
@@ -953,7 +953,7 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
                       <div className="tooltip-container">
                         <label htmlFor="province_origine">
                           {formType === 'chercheurs'
-                            ? "Province d'origine de l'institut/centre de provenance *"
+                            ? "Province de l'institut/centre de provenance *"
                             : formType === 'enseignants'
                               ? "Province de l'établissement de provenance *"
                             : formType === 'pato'
@@ -962,7 +962,7 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
                         </label>
                         <span className="tooltip-text">
                           {formType === 'chercheurs'
-                            ? "Province d'origine de l'institut/centre de provenance"
+                            ? "Province de l'institut/centre de provenance"
                             : formType === 'enseignants'
                               ? "Province de l'établissement de provenance"
                             : "Province de l'établissement/service spécialisé/centre de recherche de provenance"}
@@ -974,7 +974,7 @@ const TransfertForm = ({ user, token, onLogout, editingTransfert, onBackToList }
                         options={provincesRDC}
                         value={provincesRDC.find(opt => opt.value === formData.province_origine) || null}
                         onChange={handleProvinceChange}
-                        placeholder="Sélectionnez la province d'origine"
+                        placeholder="Sélectionnez la province de provenance"
                         isClearable
                         isSearchable
                         required

@@ -122,8 +122,8 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
     'piece_identite': "Pièce d'identité",
     'carte_service': 'Carte de service',
     'lettre_transfert': 'Lettre de transfert',
-    'formulaire_transfert_signe': 'Formulaire Adhoc signé',
-    'pv_origine': 'PV origine',
+    'formulaire_transfert_signe': 'Formulaire Ad-Hoc signé',
+    'pv_origine': 'PV de provenance',
     'pv_accueil': 'PV accueil',
     'cadre_organique_accueil': 'Cadre organique',
     'attestation_effectifs_enseignants': 'Attestation enseignants',
@@ -138,9 +138,9 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
   // Descriptions de 58 à 60 caractères pour chaque document
   const fileDescriptions = {
     piece_identite: "Pièce d’identité valide (carte d’électeur, passeport, permis de conduire biométrique de la RDC) du requérant",
-    carte_service: "Carte professionnelle valide délivrée par l'établissement d'origine.",
+    carte_service: "Carte professionnelle valide délivrée par l'établissement de provenance.",
     lettre_transfert: "Lettre manuscrite motivant la demande de transfert d'établissement.",
-    formulaire_transfert_signe: "Un formulaire ad hoc dûment rempli et signé par le requérant et les établissement/services spécialisés/centre ou institut de recherche scientifique de provenance et d’accueil, par lequel ces derniers marquent leur accord au transfert",
+    formulaire_transfert_signe: "Un formulaire Ad-Hoc dûment rempli et signé par le requérant et les établissement/services spécialisés/centre ou institut de recherche scientifique de provenance et d’accueil, par lequel ces derniers marquent leur accord au transfert",
     pv_origine: "Procès-verbal de la réunion au cours de laquelle l’assentiment au transfert a été marqué par l’établissement/service spécialisé/centre ou institut de recherche scientifique d’origine",
     pv_accueil: "Procès-verbal de la réunion au cours de laquelle l’assentiment au transfert a été marqué par l’établissement/service spécialisé/centre ou institut de recherche scientifique d’accueil",
     cadre_organique_accueil: "Copie du cadre organique de l’établissement/service spécialisé/centre ou institut de recherche scientifique d’accueil, en cas d’existence d’un tel cadre.",
@@ -169,7 +169,7 @@ const TransfertList = ({ user, token, onLogout, onCreateNew, onEditTransfert, on
     if (transfert.province_origine) {
       provinceDetails.push({
         key: 'origine',
-        label: "Province d'origine",
+        label: "Province de provenance",
         value: transfert.province_origine,
         description: "Nom de la province de l’établissement/service spécialisé/centre ou institut de recherche scientifique de provenance",
       });

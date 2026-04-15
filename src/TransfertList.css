@@ -197,6 +197,16 @@
   margin: 0 0 30px 0;
 }
 
+.empty-state .primary-btn {
+  background: #f59e0b;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.empty-state .primary-btn:hover {
+  background: #d97706;
+}
+
 .message {
   padding: 14px 16px;
   border-radius: 6px;
